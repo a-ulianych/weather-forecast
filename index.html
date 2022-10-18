@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather forecast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<main>
+    <header>
+        <label class="city_field">
+            <input type="text" required id="city_input">
+            <span class="placeholder">Enter city name</span>
+        </label>
+        <h1 id="city_name"></h1>
+    </header>
+
+    <section class="weather">
+        <div class="weather_info">
+            <img src="" alt="weather_icon" id="weather-icon">
+            <div id="weather_text"></div>
+        </div>
+        <div class="weather_temperature">
+            <p>Temperature:</p>
+            <p id="temperature"></p>
+            <p>Humidity: <span id="humidity"></span></p>
+            <p>Pressure: <span id="pressure"></span></p>
+            <p>Wind: <span id="wind"></span></p>
+        </div>
+    </section>
+</main>
+
+<script src="script/main.js"></script>
+</body>
+</html>
