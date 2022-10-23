@@ -170,9 +170,11 @@ header {
 }
 
 
+
 /* Weather info */
 .weather {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     text-align: center;
 
@@ -214,8 +216,8 @@ header {
 }
 
 
-/* Forecast */
 
+/* Forecast */
 .weekly-forecast {
     display: flex;
     flex-wrap: wrap;
@@ -263,3 +265,239 @@ header {
 }
 
 
+@media (max-width: 1400px) {
+    /* City field */
+    .datetime {
+        font-size: 15px;
+    }
+
+    .time {
+        font-size: 30px;
+    }
+
+    #city_name {
+        font-size: 40px;
+    }
+
+    /* Weather */
+    #temperature {
+        font-size: 70px;
+    }
+
+    /* Forecast */
+    .day {
+        padding: 25px 0;
+    }
+
+    .day-name {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1230px) {
+    /* City field */
+    #city_name {
+        font-size: 35px;
+    }
+
+    .city_field .placeholder .placeholder {
+        font-size: 30px;
+    }
+
+    .city_field input:valid + .placeholder,
+    .city_field input:focus + .placeholder {
+        font-size: 25px;
+    }
+
+    /* Weather */
+    .weather p {
+        font-size: 30px;
+    }
+
+    #weather_text {
+        font-size: 30px;
+    }
+
+    #temperature {
+        font-size: 60px;
+    }
+
+    /* Forecast */
+    .day-name {
+        font-size: 15px;
+    }
+
+    .temperature {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 1150px) {
+    body {
+        padding: 0 20px;
+    }
+
+    /* Header */
+    .datetime {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    /* City field */
+    .city_field {
+        width: 70%;
+    }
+
+    #city_name {
+        font-size: 30px;
+        width: 25%;
+    }
+
+    /* Forecast */
+    .weekly-forecast {
+        min-height: 480px;
+    }
+
+    .day {
+        width: 24%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* City field */
+    #city_input {
+        height: 40px;
+    }
+
+    .city_field {
+        padding-top: 40px;
+    }
+
+    .city_field .placeholder {
+        top: calc(50% + 20px);
+        font-size: 20px;
+    }
+
+    .city_field input:valid + .placeholder,
+    .city_field input:focus + .placeholder {
+        top: 25px;
+        font-size: 18px;
+        color: white;
+        opacity: 1;
+    }
+
+    #city_name {
+        font-size: 25px;
+    }
+
+    /* Weather */
+    .weather p {
+        font-size: 25px;
+    }
+
+    #temperature {
+        font-size: 45px;
+    }
+
+    /* Forecast */
+    .weekly-forecast {
+        min-height: 440px;
+    }
+}
+
+@media (max-width: 580px) {
+    /* City field */
+    #city_name {
+        font-size: 20px;
+    }
+
+    /* Weather */
+    #weather_text {
+        font-size: 25px;
+    }
+
+    .weather p {
+        font-size: 20px;
+    }
+
+    #temperature {
+        font-size: 40px;
+    }
+
+    /* Forecast */
+    .weekly-forecast {
+        min-height: 920px;
+    }
+
+    .day {
+        width: 48%;
+    }
+}
+
+@media (max-width: 425px) {
+    /* Weather */
+    .weather_info {
+        width: 100%;
+        padding-bottom: 10px;
+
+        border-bottom: 1px solid whitesmoke;
+    }
+
+    .weather_temperature {
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    .weather p {
+        font-size: 16px;
+    }
+
+    #weather-icon {
+        margin-bottom: 5px;
+    }
+
+    #weather_text {
+        font-size: 20px;
+    }
+
+    #temperature {
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    /* Forecast */
+    .weekly-forecast {
+        min-height: 2200px;
+    }
+
+    .day {
+        width: 100%;
+    }
+
+    .day-name {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 320px) {
+    /* City field */
+    .city_field {
+        padding-top: 25px;
+    }
+
+    .city_field .placeholder {
+        top: calc(50% + 12px);
+        font-size: 20px;
+    }
+
+    .city_field input:valid + .placeholder,
+    .city_field input:focus + .placeholder {
+        top: 15px;
+    }
+
+    /* Forecast */
+    .weekly-forecast {
+        min-height: 1860px;
+    }
+
+}
