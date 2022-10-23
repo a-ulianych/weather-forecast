@@ -9,6 +9,56 @@ const cityInput = document.querySelector("#city_input");
 const placeholder = document.querySelector(".placeholder");
 const weatherIcon = document.querySelector("#weather-icon");
 const forecast = document.querySelector(".weekly-forecast");
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+let dayCounter = 0;
+let dataCounter = 0;
+class WeatherCard {
+    constructor(maxTemperature, minTemperature, image, weather) {
+        this.maxTemperature = maxTemperature;
+        this.minTemperature = minTemperature;
+        this.image = image;
+        this.weather = weather;
+        this.card = null;
+    }
+
+    createCard() {
+        this.card = document.createElement("div");
+        this.card.classList.add("day");
+
+        let currentDate = new Date();
+        let dayName = document.createElement("p");
+        dayName.classList.add("day-name");
+        let dayNumber = currentDate.getDay() + dayCounter;
+        if (dayNumber >= 6) {
+            dayCounter = -1;
+        }
+
+        let date = currentDate.getDate() + dataCounter;
+        dayName.textContent = `${days[dayNumber]} ${date}`;
+        dayCounter++;
+        dataCounter++;
+
+        let temperature = document.createElement("p");
+        temperature.classList.add("temperature");
+        temperature.innerHTML = `${Math.round(this.maxTemperature)} ${sign} / ${Math.round(this.minTemperature)} ${sign}`;
+
+        let image = document.createElement("img");
+        image.classList.add("medium-icon");
+        image.alt = "weather-icon";
+        image.src = this.image;
+
+        let weather = document.createElement("p");
+        weather.textContent = this.weather;
+
+        this.card.append(dayName);
+        this.card.append(temperature);
+        this.card.append(image);
+        this.card.append(weather);
+
+        forecast.append(this.card);
+    }
+}
 
 getWeather("London", "metric");
 
@@ -18,9 +68,10 @@ cityInput.addEventListener("keydown", (e) => {
         cityInput.value = "";
         document.body.className = "";
         forecast.innerHTML = "";
+        dayCounter = 0;
+        dataCounter = 0;
     }
 });
-
 
 let sign = " &#8451";
 function getWeather(city, unitSys) {
@@ -38,7 +89,6 @@ function getWeather(city, unitSys) {
             }
         })
         .then(json => {
-            console.log(json);
             lat = json.coord.lat;
             lon = json.coord.lon;
 
@@ -89,7 +139,6 @@ function getWeather(city, unitSys) {
                 })
                 .then(json => {
                     let forecast = json.daily;
-                    console.log(forecast);
 
                     forecast.forEach(day => {
                         let src;
@@ -114,47 +163,11 @@ function getWeather(city, unitSys) {
                                 break;
                         }
 
-                        let card = new WeatherCard(day.temp.day, src, day.weather[0].main);
+                        let card = new WeatherCard(day.temp.max, day.temp.min , src, day.weather[0].main);
                         card.createCard();
                     });
                 })
                 .catch(error => console.error(error.message));
         })
         .catch(error => console.error(error.message));
-}
-
-class WeatherCard {
-    constructor(temperature, image, weather) {
-        this.temperature = temperature;
-        this.image = image;
-        this.weather = weather;
-        this.card = null;
-    }
-
-    createCard() {
-        this.card = document.createElement("div");
-        this.card.classList.add("day");
-
-        let dayName = document.createElement("p");
-        dayName.textContent = "TEST";
-
-        let temperature = document.createElement("p");
-        temperature.classList.add("temperature");
-        temperature.innerHTML = `${Math.round(this.temperature)}` + sign;
-
-        let image = document.createElement("img");
-        image.classList.add("medium-icon");
-        image.alt = "weather-icon";
-        image.src = this.image;
-
-        let weather = document.createElement("p");
-        weather.textContent = this.weather;
-
-        this.card.append(dayName);
-        this.card.append(temperature);
-        this.card.append(image);
-        this.card.append(weather);
-
-        forecast.append(this.card);
-    }
 }
