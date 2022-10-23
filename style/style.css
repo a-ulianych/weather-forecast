@@ -124,6 +124,7 @@ header {
     outline: none;
 
     font-size: 40px;
+    color: whitesmoke;
 
     background: linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255)) center bottom/0 2px no-repeat,
     linear-gradient(90deg, rgba(204, 204, 204, .5), rgba(204, 204, 204, .2)) left bottom/100% 2px no-repeat,
@@ -164,8 +165,8 @@ header {
     width: auto;
     margin: 0;
 
-    font-size: 50px;
-    color: whitesmoke;
+    font-size: 42px;
+    color: white;
     text-transform: uppercase;
 }
 
@@ -294,10 +295,24 @@ header {
     }
 }
 
-@media (max-width: 1230px) {
+@media (max-width: 1260px) {
+    body {
+        padding: 0 20px;
+    }
+
+    /* Header */
+    .datetime {
+        margin-top: 10px;
+        width: 100%;
+    }
+
     /* City field */
+    .city_field {
+        width: 60%;
+    }
+
     #city_name {
-        font-size: 35px;
+        font-size: 30px;
     }
 
     .city_field .placeholder .placeholder {
@@ -323,6 +338,14 @@ header {
     }
 
     /* Forecast */
+    .weekly-forecast {
+        min-height: 480px;
+    }
+
+    .day {
+        width: 24%;
+    }
+
     .day-name {
         font-size: 15px;
     }
@@ -332,37 +355,7 @@ header {
     }
 }
 
-@media (max-width: 1150px) {
-    body {
-        padding: 0 20px;
-    }
-
-    /* Header */
-    .datetime {
-        margin-top: 10px;
-        width: 100%;
-    }
-
-    /* City field */
-    .city_field {
-        width: 60%;
-    }
-
-    #city_name {
-        font-size: 30px;
-    }
-
-    /* Forecast */
-    .weekly-forecast {
-        min-height: 480px;
-    }
-
-    .day {
-        width: 24%;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     /* City field */
     #city_input {
         height: 40px;
@@ -378,7 +371,7 @@ header {
     }
 
     #city_input {
-        font-size: 35px;
+        font-size: 30px;
     }
 
     .city_field input:valid + .placeholder,
@@ -408,7 +401,7 @@ header {
     }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 710px) {
     /* City field */
     #city_name {
         font-size: 20px;
@@ -437,7 +430,7 @@ header {
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 600px) {
     /* City field */
     .city_field {
         width: 100%;
