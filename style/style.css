@@ -104,7 +104,7 @@ header {
 
 /* City field */
 .city_field {
-    width: 50%;
+    width: auto;
     padding-top: 60px;
 
     position: relative;
@@ -161,7 +161,7 @@ header {
 }
 
 #city_name {
-    width: 20%;
+    width: auto;
     margin: 0;
 
     font-size: 50px;
@@ -297,7 +297,6 @@ header {
 @media (max-width: 1230px) {
     /* City field */
     #city_name {
-        width: auto;
         font-size: 35px;
     }
 
